@@ -573,7 +573,7 @@ nav ul li a:hover {
 /* Contact Information Cards */
 .contact-info {
   flex: 1;
-  min-width: 300px;
+  min-width: 300px; /* Reduced from 800px */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -581,6 +581,7 @@ nav ul li a:hover {
 }
 
 .info-card {
+  flex: 1 1 300px; /* Make all cards equal width with minimum width */
   background-color: rgba(50, 50, 50, 0.5);
   border-radius: 8px;
   padding: 20px;
@@ -712,21 +713,38 @@ nav ul li a:hover {
 /* Responsive */
 @media (max-width: 768px) {
   .contact {
-      padding: 60px 0;
+    padding: 60px 0;
   }
   
   .contact-info {
-      grid-template-columns: 1fr;
+    flex-direction: row; 
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 15px; 
+  }
+  
+  .info-card {
+    flex: 0 0 260px; 
+    padding: 15px;
+    min-height: 0; 
+  }
+  
+  .info-details h3 {
+    font-size: 1.1rem; 
+  }
+  
+  .info-details p {
+    font-size: 0.9rem; 
   }
   
   .map-container.full-width {
-      height: 300px;
+    height: 300px;
   }
   
   .social-icon {
-      width: 45px;
-      height: 45px;
-      font-size: 1.1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
   }
 }
 
@@ -917,19 +935,19 @@ nav ul li a:hover {
 /* Responsive */
 @media (max-width: 991px) {
   .detailed-facilities {
-      flex-direction: column;
-      gap: 0;
+    flex-direction: column;
+    gap: 0;
   }
 
   .facilities-column {
-      width: 100%;
+    width: 100%;
   }
 }
 
 @media (max-width: 576px) {
   .popular-facilities-list {
-      flex-direction: column;
-      gap: 10px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .facilities {
